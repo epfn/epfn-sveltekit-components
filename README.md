@@ -8,10 +8,12 @@ Opinionated SvelteKit components for my personal purposes.
 npm i epfn-sveltekit-components
 ```
 
-## Importing component
+## Import component
 
-```js
-import { Drawer } from 'epfn-sveltekit-components';
+```svelte
+<script>
+	import { Drawer } from 'epfn-sveltekit-components';
+</script>
 ```
 
 ## Recommendation
@@ -24,12 +26,11 @@ Headless-like side appearing drawer with backdrop. You must provide content (wit
 
 ### Props
 
-| prop       | description                                                                                                                                             | type            | default value |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
-| width      | width of drawer in px                                                                                                                                   | number          | 260           |
-| position   | position of drawer                                                                                                                                      | "left", "right" | "left"        |
-| duration   | duration of drawer animation in ms                                                                                                                      | number          | 150           |
-| breakpoint | max window width in px when drawer will be visible to prevent unexpected behavior (actual drawer visibility must be controlled by parent component/tag) | number, false   | false         |
+| prop     | description                        | type            | default value |
+| -------- | ---------------------------------- | --------------- | ------------- |
+| width    | width of drawer in px              | number          | 260           |
+| position | position of drawer                 | "left", "right" | "left"        |
+| duration | duration of drawer animation in ms | number          | 150           |
 
 ### Slots
 
@@ -41,6 +42,51 @@ Headless-like side appearing drawer with backdrop. You must provide content (wit
 
 ### Styling
 
-| CSS variable     | description       | default value       |
+| CSS variable     | description       | fallback value      |
 | ---------------- | ----------------- | ------------------- |
 | --backdrop-color | color of backdrop | rgba(0, 0, 0, 0.75) |
+
+### Additional features
+
+You can close drawer from child component via **closeDrawer** callback from context:
+
+```svelte
+<script lang="ts">
+	import { getContext } from 'svelte';
+	const { closeDrawer } = getContext<{ closeDrawer: () => void }>('closeDrawer');
+</script>
+```
+
+## MenuDrawer
+
+Vertical list of links with border between for drawer. Clicks on links closing drawer.
+
+### Props
+
+| prop  | description    | type                              | default value |
+| ----- | -------------- | --------------------------------- | ------------- |
+| links | array of links | { href: string; label: string }[] |               |
+
+### Styling
+
+| CSS variable   | description                        | fallback value |
+| -------------- | ---------------------------------- | -------------- |
+| --border-color | color of border between list items | gray           |
+
+## MenuHeader
+
+Horizontal list of links with underline on hover.
+
+### Props
+
+| prop  | description    | type                              | default value |
+| ----- | -------------- | --------------------------------- | ------------- |
+| links | array of links | { href: string; label: string }[] |               |
+
+### Styling
+
+| CSS variable          | description            | fallback value |
+| --------------------- | ---------------------- | -------------- |
+| --underline-thickness | thickness of underline | 2px            |
+| --underline-offset    | offset of underline    | 20px           |
+| --underline-color     | color of underline     | gray           |
