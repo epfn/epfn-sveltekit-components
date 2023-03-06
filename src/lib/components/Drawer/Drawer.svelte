@@ -5,14 +5,10 @@
 
 	export let width = 260;
 	export let duration = 150;
-	export let breakpoint: number | false = false;
 	export let position: 'left' | 'right' = 'left';
 
 	let isExpanded = false;
 	setContext('closeDrawer', { closeDrawer: () => (isExpanded = false) });
-
-	let innerWidth: number;
-	$: if (isExpanded && breakpoint && innerWidth >= breakpoint) isExpanded = false;
 
 	$: if (browser) {
 		const body = document.documentElement.querySelector('body');
@@ -20,7 +16,16 @@
 	}
 </script>
 
-<svelte:window bind:innerWidth />
+<svelte:window
+	on:resize={(event) => {
+		if (isExpanded) {
+			const prev = event.currentTarget.innerWidth;
+			setTimeout(() => {
+				if (prev !== event.currentTarget.innerWidth) isExpanded = false;
+			}, 500);
+		}
+	}}
+/>
 
 <div class="epfn-drawer">
 	<button
@@ -31,9 +36,9 @@
 		on:click={() => (isExpanded = !isExpanded)}
 	>
 		{#if isExpanded}
-			<slot name="button-close" />
+			<slot name="button-close">Close</slot>
 		{:else}
-			<slot name="button-open" />
+			<slot name="button-open">Open</slot>
 		{/if}
 	</button>
 
@@ -54,7 +59,7 @@
 				opacity: 1
 			}}
 		>
-			<slot name="content" />
+			<slot name="content"><div style="background-color: white;" /></slot>
 		</div>
 	{/if}
 </div>
@@ -90,5 +95,6 @@
 		top: 0;
 		height: 100%;
 		overflow-y: auto;
+		display: grid;
 	}
 </style>
