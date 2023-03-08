@@ -90,3 +90,13 @@ Horizontal list of links with underline on hover.
 | --underline-thickness | thickness of underline | 2px            |
 | --underline-offset    | offset of underline    | 20px           |
 | --underline-color     | color of underline     | gray           |
+
+## Spinner
+
+Usual animated spinner
+
+### Styling
+
+| CSS variable    | description      | fallback value |
+| --------------- | ---------------- | -------------- |
+| --spinner-color | color of spinner | white          |
