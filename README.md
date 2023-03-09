@@ -100,3 +100,23 @@ Usual animated spinner
 | CSS variable    | description      | fallback value |
 | --------------- | ---------------- | -------------- |
 | --spinner-color | color of spinner | white          |
+
+## Alerts
+
+Vertical list of animated alerts
+
+### Styling
+
+You can apply additional styling from parent with data attributes: [data-type] for all items, [data-type='success'] for type "success", [data-type='error'] for type "error", [data-type='warning'] for type "warning"
+
+### Props
+
+| prop     | description                       | type                                                        | default value |
+| -------- | --------------------------------- | ----------------------------------------------------------- | ------------- |
+| items    | array of alerts                   | { text: string; type: 'success' \| 'error' \| 'warning' }[] |               |
+| duration | duration of alert animation in ms | number                                                      | 200           |
+
+| CSS variable       | description              | fallback value |
+| ------------------ | ------------------------ | -------------- |
+| --background-color | color of alert item      | white          |
+| --svg-color        | color of alert item icon | gray           |
