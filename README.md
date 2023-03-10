@@ -105,10 +105,6 @@ Usual animated spinner
 
 Vertical list of animated alerts
 
-### Styling
-
-You can apply additional styling from parent with data attributes: [data-type] for all items, [data-type='success'] for type "success", [data-type='error'] for type "error", [data-type='warning'] for type "warning"
-
 ### Props
 
 | prop     | description                       | type                                                        | default value |
@@ -116,7 +112,32 @@ You can apply additional styling from parent with data attributes: [data-type] f
 | items    | array of alerts                   | { text: string; type: 'success' \| 'error' \| 'warning' }[] |               |
 | duration | duration of alert animation in ms | number                                                      | 200           |
 
+### Styling
+
+You can apply additional styling from parent with data attributes: [data-type] for all items, [data-type='success'] for type "success", [data-type='error'] for type "error", [data-type='warning'] for type "warning"
+
 | CSS variable       | description              | fallback value |
 | ------------------ | ------------------------ | -------------- |
 | --background-color | color of alert item      | white          |
 | --svg-color        | color of alert item icon | gray           |
+
+## FieldText, FieldEmail, FieldTextarea
+
+Inputs with label
+
+| prop     | description                            | type    | default value |
+| -------- | -------------------------------------- | ------- | ------------- |
+| value    | value for input binding                | string  | ""            |
+| label    | text for label                         | string  |               |
+| name     | text for input name attribute          | string  |               |
+| required | value for input required attribute     | boolean | false         |
+| readonly | value for input readonly attribute     | boolean | false         |
+| error    | value for input aria-invalid attribute | boolean | false         |
+| rows     | value for textarea rows attribute      | number  | 8             |
+
+### Styling
+
+| CSS variable       | description                             | fallback value |
+| ------------------ | --------------------------------------- | -------------- |
+| --background-color | color of input background               | white          |
+| --border-color     | color of input border and outline color | gray           |
