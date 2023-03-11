@@ -121,7 +121,7 @@ You can apply additional styling from parent with data attributes: [data-type] f
 | --background-color | color of alert item      | white          |
 | --svg-color        | color of alert item icon | gray           |
 
-## FieldText, FieldEmail, FieldTextarea
+## FieldText, FieldEmail, FieldTextarea, FieldCheckbox
 
 Inputs with label
 
@@ -133,6 +133,7 @@ Inputs with label
 | required | value for input required attribute     | boolean | false         |
 | readonly | value for input readonly attribute     | boolean | false         |
 | error    | value for input aria-invalid attribute | boolean | false         |
+| hidden   | if true checkbox is hidden             | boolean | false         |
 | rows     | value for textarea rows attribute      | number  | 8             |
 
 ### Styling

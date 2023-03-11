@@ -9,3 +9,4 @@ export type { AlertItem as AlertItem } from './components/Alerts.svelte';
 export { default as FieldText } from './components/form/FieldText.svelte';
 export { default as FieldEmail } from './components/form/FieldEmail.svelte';
 export { default as FieldTextarea } from './components/form/FieldTextarea.svelte';
+export { default as FieldCheckbox } from './components/form/FieldCheckbox.svelte';
