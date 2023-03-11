@@ -2,10 +2,18 @@
 	export let name: string;
 	export let value: boolean = false;
 	export let hidden: boolean = false;
+	export let required: boolean = false;
 </script>
 
 <div style={hidden ? 'display: none;' : undefined}>
-	<input type="checkbox" {name} id={'epfn-input' + name} value={name} bind:checked={value} />
+	<input
+		id={'epfn-input' + name}
+		type="checkbox"
+		value={name}
+		bind:checked={value}
+		{name}
+		{required}
+	/>
 	<label for={'epfn-input' + name}>
 		<slot />
 	</label>
